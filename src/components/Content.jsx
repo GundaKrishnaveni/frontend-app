@@ -14,7 +14,9 @@ function Content() {
     const res = await axios.get(url);
     setProducts(res.data);
   };
-  useEffect(fetchProducts(), []);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
     <div>
       <h3>Products Page</h3>
@@ -23,9 +25,9 @@ function Content() {
       <button onClick={increment}>+</button>
       <hr />
       <ol>
-      {products.map((product) => (
-        <li>{product.name}</li>
-      ))}
+        {products.map((product) => (
+          <li>{product.name}</li>
+        ))}
       </ol>
     </div>
   );
